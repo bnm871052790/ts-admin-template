@@ -13,7 +13,7 @@ export default class Header extends Vue {
 <style lang="scss" scoped>
 .app-header {
   display: flex;
-  height: 200px;
+  // height: 200px;
   justify-content: space-between;
   background-color: #333;
 }

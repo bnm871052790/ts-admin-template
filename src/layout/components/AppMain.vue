@@ -1,9 +1,7 @@
 <template>
   <section class="app-main">
     <transition name="fade-transform" mode="out-in">
-      <keep-alive>
-        <router-view />
-      </keep-alive>
+      <router-view />
     </transition>
   </section>
 </template>
@@ -15,10 +13,13 @@ export default class AppMain extends Vue {}
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/sass/animation.scss';
 .app-main {
   flex: 1;
   height: calc(100vh - 60px);
+  padding: 14px;
   overflow: hidden;
+  box-sizing: border-box;
 }
 // .fixed-header + .app-main {
 //   padding-top: 50px;

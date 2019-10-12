@@ -1,15 +1,18 @@
 <template>
   <div>
-    <template v-for="item in menus">
-      <el-menu-item v-if="!item.children" :index="item.name" :route="item.path" :key="item.name">
-        <i class="el-icon-location"></i>
-        <span>{{ item.meta.title }}</span>
+    <div v-for="item in menus" :key="item.name">
+      <el-menu-item v-if="!item.children" :index="parentPath + item.path">
+        <i :class="item.meta.icon" v-if="item.meta && item.meta.icon"></i>
+        <span slot="title">{{ item.meta.title }}</span>
       </el-menu-item>
-      <el-submenu v-else :index="item.name" popper-append-to-body :key="item.name">
-        <template slot="title">{{ item.meta.title }}</template>
-        <NavMenuItem :menus="item.children" />
+      <el-submenu v-else :index="item.path" popper-append-to-body>
+        <template slot="title">
+          <i v-if="item.meta && item.meta.icon" :class="item.meta.icon"></i>
+          <span slot="title">{{ item.meta.title }}</span>
+        </template>
+        <NavMenuItem :menus="item.children" :parentPath="parentPath + item.path + '/'" />
       </el-submenu>
-    </template>
+    </div>
   </div>
 </template>
 
@@ -19,26 +22,25 @@ import { Component, Vue, Prop } from 'vue-property-decorator'
 export default class NavMenuItem extends Vue {
   @Prop()
   menus!: any[]
-  created() {
-    console.log(this.menus)
-  }
+  @Prop()
+  parentPath!: string
 }
 </script>
 
 <style lang="scss" scoped>
 @import '@/assets/sass/admin-color.scss';
 ::v-deep .el-menu--inline {
-  background-color: #1f2d3d !important;
+  background-color: $_menu_sub_bg !important;
   .el-menu-item {
-    background-color: #1f2d3d !important;
+    background-color: $_menu_sub_bg !important;
     &:hover {
-      background-color: rgb(0, 21, 40) !important;
+      background-color: $_menu_hover_bg !important;
     }
   }
   .el-submenu__title {
-    background-color: #1f2d3d !important;
+    background-color: $_menu_sub_bg !important;
     &:hover {
-      background-color: rgb(0, 21, 40) !important;
+      background-color: $_menu_hover_bg !important;
     }
   }
 }

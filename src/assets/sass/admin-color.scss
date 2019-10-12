@@ -2,11 +2,15 @@
 $_element_main_color: #1890ff;
 
 // 菜单背景
-$_menu_bg: #545c64;
+$_menu_bg: #304156;
 // 菜单文字
-$_menu_text: #ffffff;
+$_menu_text: #BFCBD9;
 // 菜单选中文字
-$_menu_active_text: #ffd04b;
+$_menu_active_text: #409EFF;
+// 菜单子级背景
+$_menu_sub_bg: #1f2d3d;
+// 菜单hover背景
+$_menu_hover_bg: rgb(0, 21, 40);
 
 :export {
   elementColor: $_element_main_color;

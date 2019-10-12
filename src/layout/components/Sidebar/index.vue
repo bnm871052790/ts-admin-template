@@ -12,7 +12,7 @@
         :unique-opened="true"
         :collapse-transition="false"
       >
-        <NavMenuItem :menus="getRouterMenu" />
+        <NavMenuItem :menus="getRouterMenu" :parentPath="''" />
       </el-menu>
     </el-scrollbar>
   </div>
@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { menuRouter } from '@/router/router.ts'
+import { menuRouter } from '@/router/router'
 import NavMenuItem from './NavMenuItem.vue'
 // TODO:
 // @ts-ignore
@@ -31,8 +31,8 @@ import colorData from '@/assets/sass/admin-color.scss'
   }
 })
 export default class Sidebar extends Vue {
-  isCollapse: boolean = false
-  get colorData() {
+  isCollapse: boolean = true
+  get colorData(): any {
     return colorData
   }
   get getRouterMenu(): any[] {
@@ -42,16 +42,15 @@ export default class Sidebar extends Vue {
 </script>
 
 <style lang="scss" scoped>
+$sidebar: calc(100vh - 60px);
 .app-sidebar {
-  height: calc(100vh - 60px);
+  height: $sidebar;
   width: 210px;
   background-color: $_menu_bg;
-}
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 210px;
+  transition: all 0.28s;
 }
 .scrollbar-wrapper {
-  height: calc(100vh - 60px);
+  height: $sidebar;
   overflow: hidden;
 }
 ::v-deep .el-scrollbar__wrap {
