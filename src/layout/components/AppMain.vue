@@ -15,8 +15,7 @@ export default class AppMain extends Vue {}
 <style lang="scss" scoped>
 @import '@/assets/css/animation.scss';
 .app-main {
-  flex: 1;
-  height: calc(100vh - #{$_header_height});
+  height: calc(100vh - #{$_header_height} - #{$_tags_view_heigth} - 1px);
   padding: 14px;
   overflow: hidden;
   box-sizing: border-box;

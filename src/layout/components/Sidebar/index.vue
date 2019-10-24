@@ -1,5 +1,5 @@
 <template>
-  <div class="app-sidebar">
+  <div class="app-sidebar" :style="{ width: isCollapse ? '65px' : '210px' }">
     <el-scrollbar class="scrollbar-wrapper">
       <el-menu
         router

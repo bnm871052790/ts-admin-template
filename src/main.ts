@@ -7,7 +7,7 @@ import ElementUI from 'element-ui'
 import '@/assets/css/element-variables.scss'
 
 import 'normalize.css'
-
+import './permission'
 // TODO: sass变量引入ts检测出错，先暂时忽略检测，据说是要写个.d.ts配置变量
 // @ts-ignore
 import { size } from '@/assets/css/element-variables.scss'

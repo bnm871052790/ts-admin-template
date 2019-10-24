@@ -2,7 +2,7 @@
   <el-header class="app-header">
     <img src="@/assets/img/logo.png" class="logo" />
     <el-dropdown trigger="click">
-      <span class="el-dropdown-link"> 用户名<i class="el-icon-arrow-down el-icon--right"></i> </span>
+      <span class="el-dropdown-link">用户名<i class="el-icon-arrow-down el-icon--right"/></span>
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item icon="el-icon-plus">黄金糕</el-dropdown-item>
         <el-dropdown-item icon="el-icon-circle-plus">狮子头</el-dropdown-item>

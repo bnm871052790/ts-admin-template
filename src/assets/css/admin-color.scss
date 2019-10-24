@@ -16,6 +16,10 @@ $_menu_hover_bg: rgb(0, 21, 40);
 $_header_height: 60px;
 $_header_color: #333;
 
+// tagsView
+$_tags_view_heigth: 34px;
+$_tags_view_active_color: #42b983;
+
 :export {
   elementColor: $_element_main_color;
   menuBg: $_menu_bg;
