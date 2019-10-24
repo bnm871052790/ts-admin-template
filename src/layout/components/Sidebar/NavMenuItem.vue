@@ -8,7 +8,7 @@
       <el-submenu v-else :index="item.path" popper-append-to-body>
         <template slot="title">
           <i v-if="item.meta && item.meta.icon" :class="item.meta.icon"></i>
-          <span slot="title">{{ item.meta.title }}</span>
+          <span slot="title" v-show="!collapse">{{ item.meta.title }}</span>
         </template>
         <NavMenuItem :menus="item.children" :parentPath="parentPath + item.path + '/'" />
       </el-submenu>
@@ -24,11 +24,13 @@ export default class NavMenuItem extends Vue {
   menus!: any[]
   @Prop()
   parentPath!: string
+  @Prop()
+  collapse!: boolean
 }
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/sass/admin-color.scss';
+@import '@/assets/css/admin-color.scss';
 ::v-deep .el-menu--inline {
   background-color: $_menu_sub_bg !important;
   .el-menu-item {

@@ -12,6 +12,10 @@ $_menu_sub_bg: #1f2d3d;
 // 菜单hover背景
 $_menu_hover_bg: rgb(0, 21, 40);
 
+// header配置
+$_header_height: 60px;
+$_header_color: #333;
+
 :export {
   elementColor: $_element_main_color;
   menuBg: $_menu_bg;

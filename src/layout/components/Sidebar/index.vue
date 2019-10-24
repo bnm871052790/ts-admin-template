@@ -2,8 +2,6 @@
   <div class="app-sidebar">
     <el-scrollbar class="scrollbar-wrapper">
       <el-menu
-        class="el-menu-vertical"
-        mode="vertical"
         router
         :collapse="isCollapse"
         :background-color="colorData.menuBg"
@@ -12,7 +10,7 @@
         :unique-opened="true"
         :collapse-transition="false"
       >
-        <NavMenuItem :menus="getRouterMenu" :parentPath="''" />
+        <NavMenuItem :menus="getRouterMenu" :parentPath="''" :collapse="isCollapse" />
       </el-menu>
     </el-scrollbar>
   </div>
@@ -24,7 +22,7 @@ import { menuRouter } from '@/router/router'
 import NavMenuItem from './NavMenuItem.vue'
 // TODO:
 // @ts-ignore
-import colorData from '@/assets/sass/admin-color.scss'
+import colorData from '@/assets/css/admin-color.scss'
 @Component({
   components: {
     NavMenuItem
@@ -42,12 +40,12 @@ export default class Sidebar extends Vue {
 </script>
 
 <style lang="scss" scoped>
-$sidebar: calc(100vh - 60px);
+$sidebar: calc(100vh - #{$_header_height});
 .app-sidebar {
   height: $sidebar;
   width: 210px;
   background-color: $_menu_bg;
-  transition: all 0.28s;
+  transition: width 0.28s;
 }
 .scrollbar-wrapper {
   height: $sidebar;

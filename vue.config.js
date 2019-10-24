@@ -10,8 +10,8 @@ module.exports = {
   // compiler: false,
   // webpack配置
   // see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
-  chainWebpack: () => {},
-  configureWebpack: () => {},
+  chainWebpack: () => { },
+  configureWebpack: () => { },
   // vue-loader 配置项
   // https://vue-loader.vuejs.org/en/options.html
   // vueLoader: {},
@@ -26,7 +26,7 @@ module.exports = {
     // css预设器配置项
     loaderOptions: {
       sass: {
-        data: `@import "~@/assets/sass/global.scss";`
+        data: `@import "~@/assets/css/global.scss";`
       }
     },
     // 启用 CSS modules for all css / pre-processor files.
@@ -58,7 +58,7 @@ module.exports = {
         }
       }
     }, // 设置代理
-    before: app => {}
+    before: app => { }
   },
   // 第三方插件配置
   pluginOptions: {

@@ -4,13 +4,13 @@ import { router } from './router/router'
 import store from './store/'
 
 import ElementUI from 'element-ui'
-import '@/assets/sass/element-variables.scss'
+import '@/assets/css/element-variables.scss'
 
 import 'normalize.css'
 
 // TODO: sass变量引入ts检测出错，先暂时忽略检测，据说是要写个.d.ts配置变量
 // @ts-ignore
-import { size } from '@/assets/sass/element-variables.scss'
+import { size } from '@/assets/css/element-variables.scss'
 
 Vue.use(ElementUI, {
   size
