@@ -10,23 +10,7 @@ const details = [
         path: 'menu1-1',
         name: 'menu1-1',
         component: View,
-        meta: { title: '菜单1-1' },
-        children: [
-          {
-            path: 'menu1-1-1',
-            name: 'menu1-1-1',
-            component: View,
-            meta: { title: '菜单1-1-1' },
-            children: [
-              {
-                path: 'menu1-1-1-1',
-                name: 'menu1-1-1-1',
-                component: () => import('@/views/menu/menu1-1-1.vue'),
-                meta: { title: '菜单1-1-1-1' }
-              }
-            ]
-          }
-        ]
+        meta: { title: '菜单1-1' }
       },
       {
         path: 'menu1-2',

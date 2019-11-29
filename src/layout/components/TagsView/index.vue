@@ -1,6 +1,9 @@
 <template>
   <div id="tags-view-container" class="tags-view-container">
     <scroll-pane ref="scrollPane" class="tags-view-wrapper">
+      <div class="collapse" @click="collapseMenu">
+        <i :class="!getCollapse ? 'el-icon-s-fold' : 'el-icon-s-unfold'"></i>
+      </div>
       <router-link
         v-for="(tag, index) in visitedViews"
         ref="tag"
@@ -21,7 +24,7 @@
 import ScrollPane from './ScrollPane.vue'
 import { Component, Vue, Watch } from 'vue-property-decorator'
 import { Route } from 'vue-router'
-import { Mutation } from 'vuex-class'
+import { Getter, Mutation } from 'vuex-class'
 import { State } from '@/store/modules/tagsView'
 @Component({
   components: {
@@ -31,6 +34,9 @@ import { State } from '@/store/modules/tagsView'
 export default class TagsView extends Vue {
   @Mutation('SET_INCLUDE') setInclude!: (params: any[]) => void
   @Mutation('DEL_INCLUDE') delInclude!: (params: State['include']) => void
+  @Mutation('SET_COLLAPSE') changeCollapse!: () => void
+  @Getter getCollapse!: boolean
+
   visitedViews: any[] = [
     {
       recordPath: '/root',
@@ -46,6 +52,12 @@ export default class TagsView extends Vue {
   }
   created() {
     this.pushRoute()
+  }
+  /**
+   * 菜单开关
+   */
+  collapseMenu() {
+    this.changeCollapse()
   }
   /**
    * 移除
@@ -92,12 +104,22 @@ export default class TagsView extends Vue {
 </script>
 <style lang="scss" scoped>
 .tags-view-container {
+  display: flex;
   height: $_tags_view_heigth;
   width: 100%;
   background: #fff;
   border-bottom: 1px solid #d8dce5;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
   .tags-view-wrapper {
+    .collapse {
+      display: inline-block;
+      height: $_tags_view_heigth;
+      padding-left: 10px;
+      background-color: #fff;
+      font-size: 20px;
+      vertical-align: text-top;
+      cursor: pointer;
+    }
     .tags-view-item {
       display: inline-block;
       position: relative;
